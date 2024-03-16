@@ -13,7 +13,7 @@ public class MapElementManager : MonoBehaviour
         this.SetInstance(ref instance);
     }
 
-    private void BroadcastPlayerInput(KeyCode keyCode)
+    public void BroadcastPlayerInput(KeyCode keyCode)
     {
         // Find all GameObjects with components of type IMapElement
         Component[] components = FindObjectsOfType<Component>();

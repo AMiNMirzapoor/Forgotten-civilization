@@ -157,6 +157,7 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
+            Interact();
             GroundedCheck();
             Move();
         }
@@ -281,7 +282,6 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            return;
             if (Grounded)
             {
                 // reset the fall timeout timer
@@ -346,6 +346,14 @@ namespace StarterAssets
             if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
+            }
+        }
+
+        private void Interact()
+        {
+            if (_input.interact)
+            {
+                MapElementManager.instance.BroadcastPlayerInput(KeyCode.J);
             }
         }
 

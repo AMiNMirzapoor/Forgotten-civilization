@@ -11,7 +11,7 @@ public class KeyController : MonoBehaviour, IMapElement
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UiManager.instance.ShowKeyPressTutorial(true);
+            UiManager.instance.ShowKeyPressTutorial();
         }
     }
     
@@ -19,7 +19,7 @@ public class KeyController : MonoBehaviour, IMapElement
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UiManager.instance.ShowKeyPressTutorial(false);
+            UiManager.instance.HideKeyPressTutorial();
         }
     }
 

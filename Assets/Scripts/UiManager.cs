@@ -10,8 +10,8 @@ public class UiManager : MonoBehaviour
 
     private Canvas canvas;
 
-    [SerializeField] private GameObject keyPressTutorial;
-    [SerializeField] private GameObject keyInInentory;
+    [SerializeField] private UIElement keyPressTutorial;
+    [SerializeField] private UIElement keyInInentory;
 
     private void Awake()
     {
@@ -21,10 +21,31 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         canvas = transform.Find("Canvas").GetComponent<Canvas>();
+
+        UIElement[] uiElements = canvas.GetComponentsInChildren<UIElement>();
+        for (int i = 0; i < uiElements.Length; i++)
+        {
+            uiElements[i].Hide();
+        }
     }
 
-    public void ShowKeyPressTutorial(bool show)
+    public void ShowKeyPressTutorial()
     {
-        keyPressTutorial.SetActive(show);
+        keyPressTutorial.Show();
+    }
+    
+    public void HideKeyPressTutorial()
+    {
+        keyPressTutorial.Hide();
+    }
+    
+    public void ShowKeyInventory()
+    {
+        keyInInentory.Show();
+    }
+    
+    public void Hide()
+    {
+        keyInInentory.Hide();
     }
 }
