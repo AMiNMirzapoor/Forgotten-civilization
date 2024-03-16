@@ -43,7 +43,7 @@ public class ChestController : MonoBehaviour, IMapElement
             InventoryManager.instance.hasKey = false;
             UiManager.instance.HideKeyInventory();
             UiManager.instance.HideKeyPressTutorial();
-            UiManager.instance.ShowGateCode("132");
+            UiManager.instance.ShowGateCode("13254");
             gameObject.SetActive(false);
         }
     }
