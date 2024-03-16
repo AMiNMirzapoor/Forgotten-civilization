@@ -11,6 +11,7 @@ public class KeyController : MonoBehaviour, IMapElement
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            IsPlayerNearby = true;
             UiManager.instance.ShowKeyPressTutorial();
         }
     }
@@ -19,12 +20,14 @@ public class KeyController : MonoBehaviour, IMapElement
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            IsPlayerNearby = false;
             UiManager.instance.HideKeyPressTutorial();
         }
     }
 
     public void OnInteract(KeyCode inputKey)
     {
-        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
+        InventoryManager.instance.hasKey = true;
+        gameObject.SetActive(false);
     }
 }
