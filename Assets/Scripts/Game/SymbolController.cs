@@ -17,21 +17,20 @@ public class SymbolController : MonoBehaviour, IMapElement
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("OnTriggerEnter => " + gameObject.name);
             if (state != State.Selected) 
             {
                 IsPlayerNearby = true;
                 state = State.Selected;
+                meshRenderer.material = selectedMaterial; 
                 PuzzleManager.instance.SymbolSelected(gameObject.name);
-                meshRenderer.material = selectedMaterial;    
             }
         }
     }
 
     public void UpdateState(bool isSelected)
     {
-        if (!isSelected){
-            Debug.Log("symbol state updated => " + isSelected + " name "  + gameObject.name);
+        if (!isSelected)
+        {
             state = State.Deselected;
             meshRenderer.material = deselectedMaterial;
         }

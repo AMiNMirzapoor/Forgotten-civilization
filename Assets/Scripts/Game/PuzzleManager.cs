@@ -22,7 +22,6 @@ public class PuzzleManager : MonoBehaviour
         if (selectedPattern.Contains(symbolName))
             return;
 
-        Debug.Log("New symbol selected : " + symbolName);
         selectedPattern.Add(symbolName);
 
         if (selectedPattern.Count == desiredPattern.Count)
@@ -35,7 +34,6 @@ public class PuzzleManager : MonoBehaviour
             {
                 gate.ShowOpenAnimation();
             }
-            Debug.Log("Pattern matched: " + hasPattern);
         }
     }
 
@@ -48,7 +46,7 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    public bool CheckPattern(List<string> list1, List<string> list2)
+    private static bool CheckPattern(List<string> list1, List<string> list2)
     {
         return list1.SequenceEqual(list2);
     }

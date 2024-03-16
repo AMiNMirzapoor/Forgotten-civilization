@@ -13,6 +13,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private UIElement keyPressTutorial;
     [SerializeField] private UIElement keyInInventory;
     [SerializeField] private UIElement gateCode;
+    [SerializeField] private UIElement winMenu;
 
     private void Awake()
     {
@@ -58,5 +59,10 @@ public class UiManager : MonoBehaviour
     public void HideGateCode()
     {
         gateCode.Hide();
+    }
+
+    public void ShowWinMenu()
+    {
+        winMenu.Show();
     }
 }

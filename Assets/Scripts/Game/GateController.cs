@@ -10,22 +10,19 @@ public class GateController : MonoBehaviour, IMapElement
     public bool IsPlayerNearby { get; set; }
     public bool Interactable { get; set; }
 
+    [SerializeField] private GameObject trigger;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            IsPlayerNearby = true;
-            UiManager.instance.ShowKeyPressTutorial();
+            UiManager.instance.ShowWinMenu();
+            Time.timeScale = 0.00001f;
         }
     }
     
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            IsPlayerNearby = false;
-            UiManager.instance.HideKeyPressTutorial();
-        }
     }
 
     public void OnInteract(KeyCode inputKey)
@@ -40,6 +37,7 @@ public class GateController : MonoBehaviour, IMapElement
             Vector3 targetPosition = new Vector3(currentPosition.x, targetY, currentPosition.z);
             transform.DOMove(targetPosition, 2f); // Move to the target position in 2 seconds
             inAnimationPlayed = true;
+            trigger.SetActive(true);
         }
     }
 }
