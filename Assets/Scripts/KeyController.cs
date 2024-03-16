@@ -35,6 +35,7 @@ public class KeyController : MonoBehaviour, IMapElement
         
         InventoryManager.instance.hasKey = true;
         UiManager.instance.ShowKeyInventory();
+        UiManager.instance.HideKeyPressTutorial();
         gameObject.SetActive(false);
     }
 }

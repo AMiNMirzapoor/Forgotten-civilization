@@ -11,7 +11,10 @@ public class ChestController : MonoBehaviour, IMapElement
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = true;
-            UiManager.instance.ShowKeyPressTutorial();
+            if (InventoryManager.instance.hasKey)
+            {
+                UiManager.instance.ShowKeyPressTutorial();
+            }
         }
     }
     
@@ -20,7 +23,10 @@ public class ChestController : MonoBehaviour, IMapElement
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = false;
-            UiManager.instance.HideKeyPressTutorial();
+            if (InventoryManager.instance.hasKey)
+            {
+                UiManager.instance.HideKeyPressTutorial();
+            }
         }
     }
 
@@ -36,8 +42,9 @@ public class ChestController : MonoBehaviour, IMapElement
         {
             InventoryManager.instance.hasKey = false;
             UiManager.instance.HideKeyInventory();
-            gameObject.SetActive(false);
+            UiManager.instance.HideKeyPressTutorial();
             UiManager.instance.ShowGateCode("13245");
+            gameObject.SetActive(false);
         }
     }
 }
