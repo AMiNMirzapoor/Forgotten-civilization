@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class UIElement : MonoBehaviour
 {
-    public void Show()
+    public virtual void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    
+    public virtual void Show(object data)
     {
         gameObject.SetActive(true);
     }

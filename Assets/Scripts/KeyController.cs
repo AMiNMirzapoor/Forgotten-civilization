@@ -27,7 +27,14 @@ public class KeyController : MonoBehaviour, IMapElement
 
     public void OnInteract(KeyCode inputKey)
     {
+        if (!IsPlayerNearby)
+        {
+            return;
+        }
+        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
+        
         InventoryManager.instance.hasKey = true;
+        UiManager.instance.ShowKeyInventory();
         gameObject.SetActive(false);
     }
 }

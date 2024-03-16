@@ -11,7 +11,8 @@ public class UiManager : MonoBehaviour
     private Canvas canvas;
 
     [SerializeField] private UIElement keyPressTutorial;
-    [SerializeField] private UIElement keyInInentory;
+    [SerializeField] private UIElement keyInInventory;
+    [SerializeField] private UIElement gateCode;
 
     private void Awake()
     {
@@ -41,11 +42,21 @@ public class UiManager : MonoBehaviour
     
     public void ShowKeyInventory()
     {
-        keyInInentory.Show();
+        keyInInventory.Show();
     }
     
-    public void Hide()
+    public void HideKeyInventory()
     {
-        keyInInentory.Hide();
+        keyInInventory.Hide();
+    }
+
+    public void ShowGateCode(string code)
+    {
+        gateCode.Show(code);
+    }
+    
+    public void HideGateCode()
+    {
+        gateCode.Hide();
     }
 }

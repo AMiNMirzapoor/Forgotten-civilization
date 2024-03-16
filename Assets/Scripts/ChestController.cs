@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class GateController : MonoBehaviour, IMapElement
+public class ChestController : MonoBehaviour, IMapElement
 {
-    [SerializeField] private float targetY = 10f; // Target Y position
-    private bool inAnimationPlayed = false;
     public bool IsPlayerNearby { get; set; }
     public bool Interactable { get; set; }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -36,13 +32,12 @@ public class GateController : MonoBehaviour, IMapElement
         }
         Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
         
-        if (!inAnimationPlayed)
+        if (InventoryManager.instance.hasKey)
         {
-            Vector3 currentPosition = transform.position;
-            Vector3 targetPosition = new Vector3(currentPosition.x, targetY, currentPosition.z);
-            transform.DOMove(targetPosition, 2f); // Move to the target position in 2 seconds
-            inAnimationPlayed = true;
+            InventoryManager.instance.hasKey = false;
+            UiManager.instance.HideKeyInventory();
+            gameObject.SetActive(false);
+            UiManager.instance.ShowGateCode("13245");
         }
     }
 }
-
