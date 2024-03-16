@@ -29,13 +29,11 @@ public class GateController : MonoBehaviour, IMapElement
     }
 
     public void OnInteract(KeyCode inputKey)
+    {           
+    }
+
+    public void ShowOpenAnimation()
     {
-        if (!IsPlayerNearby)
-        {
-            return;
-        }
-        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
-        
         if (!inAnimationPlayed)
         {
             Vector3 currentPosition = transform.position;
