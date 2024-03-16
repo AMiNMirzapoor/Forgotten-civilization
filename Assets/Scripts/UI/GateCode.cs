@@ -12,7 +12,7 @@ public class GateCode : UIElement
     {
         base.Show(data);
 
-        text.text = (string) data;
+        // text.text = (string) data;
     }
 
     private void Update()

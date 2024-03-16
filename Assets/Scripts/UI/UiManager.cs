@@ -34,32 +34,32 @@ public class UiManager : MonoBehaviour
 
     public void ShowKeyPressTutorial()
     {
-        keyPressTutorial.Show();
+        //keyPressTutorial.Show();
     }
     
     public void HideKeyPressTutorial()
     {
-        keyPressTutorial.Hide();
+        //keyPressTutorial.Hide();
     }
     
     public void ShowKeyNeededTutorial()
     {
-        keyNeededTutorial.Show();
+        //keyNeededTutorial.Show();
     }
     
     public void HideKeyNeededTutorial()
     {
-        keyNeededTutorial.Hide();
+        //keyNeededTutorial.Hide();
     }
     
     public void ShowKeyInventory()
     {
-        keyInInventory.Show();
+        //keyInInventory.Show();
     }
     
     public void HideKeyInventory()
     {
-        keyInInventory.Hide();
+        //keyInInventory.Hide();
     }
 
     public void ShowGateCode(string code)
