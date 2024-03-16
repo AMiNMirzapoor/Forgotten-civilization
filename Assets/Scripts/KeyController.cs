@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyController : MonoBehaviour
+public class KeyController : MonoBehaviour, IMapElement
 {
-    private void OnTriggerEnter(Collider other)
+    public bool IsPlayerNearby { get; set; }
+    public bool Interactable { get; set; }
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -12,11 +15,16 @@ public class KeyController : MonoBehaviour
         }
     }
     
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             UiManager.instance.ShowKeyPressTutorial(false);
         }
+    }
+
+    public void OnInteract(KeyCode inputKey)
+    {
+        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
     }
 }
