@@ -11,6 +11,7 @@ public class UiManager : MonoBehaviour
     private Canvas canvas;
 
     [SerializeField] private UIElement keyPressTutorial;
+    [SerializeField] private UIElement keyNeededTutorial;
     [SerializeField] private UIElement keyInInventory;
     [SerializeField] private UIElement gateCode;
     [SerializeField] private UIElement winMenu;
@@ -39,6 +40,16 @@ public class UiManager : MonoBehaviour
     public void HideKeyPressTutorial()
     {
         keyPressTutorial.Hide();
+    }
+    
+    public void ShowKeyNeededTutorial()
+    {
+        keyNeededTutorial.Show();
+    }
+    
+    public void HideKeyNeededTutorial()
+    {
+        keyNeededTutorial.Hide();
     }
     
     public void ShowKeyInventory()

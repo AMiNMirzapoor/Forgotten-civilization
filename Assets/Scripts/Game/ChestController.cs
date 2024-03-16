@@ -15,6 +15,10 @@ public class ChestController : MonoBehaviour, IMapElement
             {
                 UiManager.instance.ShowKeyPressTutorial();
             }
+            else
+            {
+                UiManager.instance.ShowKeyNeededTutorial();
+            }
         }
     }
     
@@ -26,6 +30,10 @@ public class ChestController : MonoBehaviour, IMapElement
             if (InventoryManager.instance.hasKey)
             {
                 UiManager.instance.HideKeyPressTutorial();
+            }
+            else
+            {
+                UiManager.instance.HideKeyNeededTutorial();
             }
         }
     }

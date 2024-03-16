@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4034bdfcbb8a4e45bf0d3ae1757c24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetY: 4
+  targetY: 1.74
   trigger: {fileID: 4916914537878849242}
 --- !u!54 &8074074344275326652
 Rigidbody:
