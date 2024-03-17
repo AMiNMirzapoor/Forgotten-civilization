@@ -8,7 +8,9 @@ public class ChestController : MonoBehaviour, IMapElement
     public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
     public bool NotInteractable { get; set; }
-
+    private bool inAnimationPlayed = false;
+    private float animationLength = 5;
+    [SerializeField] private Animator anim;
     public bool CanBePickedUp() => false;
     public Vector3 InitialRotation { get; set; }
 
@@ -33,7 +35,7 @@ public class ChestController : MonoBehaviour, IMapElement
             }
         }
     }
-    
+
     public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -69,6 +71,7 @@ public class ChestController : MonoBehaviour, IMapElement
         
         if (pickedUpElement is KeyController key)
         {
+            ShowOpenAnimation();
             key.NotInteractable = true;
             key.transform.SetParent(transform);
             key.transform.DOKill();
@@ -78,7 +81,6 @@ public class ChestController : MonoBehaviour, IMapElement
                 {
                     UiManager.instance.ShowGateCode();
                 }
-                
                 NotInteractable = false;
                 isOpened = true;
             });
@@ -90,5 +92,18 @@ public class ChestController : MonoBehaviour, IMapElement
         }
 
         return false;
+    }
+
+    public void ShowOpenAnimation()
+    {
+        if (!inAnimationPlayed)
+        {
+            if(anim != null)
+            {
+                anim.enabled = true;
+                //anim.Play("Chest", 0 ,0.01f);
+            }
+            inAnimationPlayed = true;
+        }
     }
 }
