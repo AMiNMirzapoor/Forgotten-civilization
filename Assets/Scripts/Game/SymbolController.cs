@@ -5,14 +5,18 @@ using DG.Tweening;
 
 public class SymbolController : MonoBehaviour, IMapElement
 {
+    public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
-    public bool Interactable { get; set; }
+    public bool NotInteractable { get; set; }
     public Material selectedMaterial;
     public Material deselectedMaterial;
     public MeshRenderer meshRenderer;
     private enum State {None, Selected, Deselected};
     private State state = State.None;
-
+    public bool CanBePickedUp() => false;
+    
+    public Vector3 InitialRotation { get; set; }
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -44,8 +48,9 @@ public class SymbolController : MonoBehaviour, IMapElement
         }
     }
 
-    public void OnInteract(KeyCode inputKey)
+    public bool OnInteract(KeyCode inputKey)
     {
+        return false;
     }
 }
 

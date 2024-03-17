@@ -62,9 +62,9 @@ public class UiManager : MonoBehaviour
         //keyInInventory.Hide();
     }
 
-    public void ShowGateCode(string code)
+    public void ShowGateCode()
     {
-        gateCode.Show(code);
+        gateCode.Show();
     }
     
     public void HideGateCode()

@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class UIElement : MonoBehaviour
 {
-    public virtual void Show()
+    public void Show()
     {
         gameObject.SetActive(true);
     }
     
     public virtual void Show(object data)
     {
-        gameObject.SetActive(true);
+        Show();
     }
 
     public void Hide()

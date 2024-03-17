@@ -5,12 +5,14 @@ using DG.Tweening;
 
 public class GateController : MonoBehaviour, IMapElement
 {
+    public GameObject GetGameObject() => gameObject;
     [SerializeField] private float targetY = 10f; // Target Y position
     private bool inAnimationPlayed = false;
     public bool IsPlayerNearby { get; set; }
-    public bool Interactable { get; set; }
-
+    public bool NotInteractable { get; set; }
+    public bool CanBePickedUp() => false;
     [SerializeField] private GameObject trigger;
+    public Vector3 InitialRotation { get; set; }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -25,8 +27,9 @@ public class GateController : MonoBehaviour, IMapElement
     {
     }
 
-    public void OnInteract(KeyCode inputKey)
-    {           
+    public bool OnInteract(KeyCode inputKey)
+    {
+        return false;
     }
 
     public void ShowOpenAnimation()

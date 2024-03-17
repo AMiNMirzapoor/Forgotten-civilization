@@ -354,7 +354,7 @@ namespace StarterAssets
         {
             if (_input.interact)
             {
-                MapElementManager.instance.BroadcastPlayerInput(KeyCode.J);
+                MapElementManager.instance.BroadcastPlayerInput(transform, KeyCode.J);
                 _input.interact = false;
             }
         }

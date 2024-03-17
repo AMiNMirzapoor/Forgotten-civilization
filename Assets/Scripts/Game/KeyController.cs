@@ -1,14 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyController : MonoBehaviour, IMapElement
 {
+    public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
-    public bool Interactable { get; set; }
+    public bool NotInteractable { get; set; }
+    public bool CanBePickedUp() => true;
+    
+    public Vector3 InitialRotation { get; set; }
+
+    private void Start()
+    {
+        InitialRotation = transform.eulerAngles;
+    }
 
     public void OnTriggerEnter(Collider other)
     {
+        if (NotInteractable)
+        {
+            return;
+        }
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = true;
@@ -18,6 +32,10 @@ public class KeyController : MonoBehaviour, IMapElement
     
     public void OnTriggerExit(Collider other)
     {
+        if (NotInteractable)
+        {
+            return;
+        }
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = false;
@@ -25,17 +43,21 @@ public class KeyController : MonoBehaviour, IMapElement
         }
     }
 
-    public void OnInteract(KeyCode inputKey)
+    public bool OnInteract(KeyCode inputKey)
     {
+        if (NotInteractable)
+        {
+            return false;
+        }
         if (!IsPlayerNearby)
         {
-            return;
+            return false;
         }
-        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
         
         InventoryManager.instance.hasKey = true;
         UiManager.instance.ShowKeyInventory();
         UiManager.instance.HideKeyPressTutorial();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        return true;
     }
 }

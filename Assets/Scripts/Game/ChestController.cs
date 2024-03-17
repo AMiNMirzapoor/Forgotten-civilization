@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour, IMapElement
 {
+    public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
-    public bool Interactable { get; set; }
+    public bool NotInteractable { get; set; }
+
+    public bool CanBePickedUp() => false;
+    public Vector3 InitialRotation { get; set; }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -38,20 +42,23 @@ public class ChestController : MonoBehaviour, IMapElement
         }
     }
 
-    public void OnInteract(KeyCode inputKey)
+    public bool OnInteract(KeyCode inputKey)
     {
         if (!IsPlayerNearby)
         {
-            return;
+            return false;
         }
-        Debug.Log("Interacted with " + gameObject.name + " inputkey detected => " + inputKey);
         
         if (InventoryManager.instance.hasKey)
         {
             // InventoryManager.instance.hasKey = false;
             UiManager.instance.HideKeyInventory();
             UiManager.instance.HideKeyPressTutorial();
-            UiManager.instance.ShowGateCode("13254");
+            UiManager.instance.ShowGateCode();
+
+            return true;
         }
+
+        return false;
     }
 }

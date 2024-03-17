@@ -5,9 +5,14 @@ using UnityEngine;
 // Define the interface
 public interface IMapElement
 {
+    public GameObject GetGameObject();
     public bool IsPlayerNearby { get; set; }
-    public bool Interactable { get; set; }
+    public bool NotInteractable { get; set; }
     public void OnTriggerEnter(Collider other);
     public void OnTriggerExit(Collider other);
-    public void OnInteract(KeyCode inputKey);
+    public bool OnInteract(KeyCode inputKey);
+
+    public bool CanBePickedUp();
+    
+    public Vector3 InitialRotation { get; set; }
 }
