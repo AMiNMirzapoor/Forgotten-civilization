@@ -12,6 +12,11 @@ public class MapElementManager : MonoBehaviour
     public static MapElementManager instance;
 
     private IMapElement[] mapElements;
+    [SerializeField] private AudioSource audioPickUp;
+    [SerializeField] private AudioSource audioPutDown;
+    private float animationLength = 0.5f;
+
+
     public IMapElement pickedUpElement;
 
     private void Awake()
@@ -68,6 +73,9 @@ public class MapElementManager : MonoBehaviour
         pickedUpElement = mapElement;
         mapElement.NotInteractable = true;
         mapElement.IsPlayerNearby = false;
+        audioPickUp.enabled = true;
+        StartCoroutine(ExampleCoroutine());
+
         mapElement.GetGameObject().transform.SetParent(parent);
         mapElement.GetGameObject().GetComponent<Rigidbody>().isKinematic = true;
         mapElement.GetGameObject().GetComponent<Rigidbody>().useGravity = false;
@@ -84,6 +92,9 @@ public class MapElementManager : MonoBehaviour
 
     private void PutDownItem()
     {
+        audioPutDown.enabled = true;
+        StartCoroutine(ExampleCoroutine());
+
         pickedUpElement.GetGameObject().transform.DOKill();
         Transform parent = pickedUpElement.GetGameObject().transform.parent;
         pickedUpElement.GetGameObject().transform.SetParent(transform);
@@ -93,5 +104,16 @@ public class MapElementManager : MonoBehaviour
         pickedUpElement.NotInteractable = false;
         pickedUpElement.IsPlayerNearby = false;
         pickedUpElement = null;
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        yield return new WaitForSeconds(animationLength); // Wait for 3 seconds
+        stopAfterPlay();
+    }
+
+    private void stopAfterPlay(){
+        audioPutDown.enabled = false;
+        audioPickUp.enabled = false;
     }
 }
