@@ -49,6 +49,16 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
 		}
+
+		public void OnQuit(InputValue value)
+		{
+			Application.Quit();
+		}
+
+		public void OnTutorial(InputValue value)
+		{
+			UiManager.instance.ShowTutorial();
+		}
 #endif
 
 

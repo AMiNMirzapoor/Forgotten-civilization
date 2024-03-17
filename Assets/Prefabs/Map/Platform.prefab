@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a65655c1b8974a7bb299d5784d662da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMaterial: {fileID: 2100000, guid: dbf898c9f9c4a2d46aa6336e23caeb61, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 8e04116ee6aa54225915ce9d19c5a57c, type: 2}
   deselectedMaterial: {fileID: -6922793697723135513, guid: dc27fefe4d5974b219a85e409ef6141b,
     type: 3}
   meshRenderer: {fileID: 1840001303171230618}

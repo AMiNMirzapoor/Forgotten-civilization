@@ -74,13 +74,17 @@ public class ChestController : MonoBehaviour, IMapElement
             key.transform.DOKill();
             key.transform.DOMove(transform.position, 1f).SetEase(Ease.OutSine).OnComplete(() =>
             {
-                UiManager.instance.ShowGateCode();
+                if (IsPlayerNearby)
+                {
+                    UiManager.instance.ShowGateCode();
+                }
+                
                 NotInteractable = false;
+                isOpened = true;
             });
             UiManager.instance.HideKeyInventory();
             UiManager.instance.HideKeyPressTutorial();
-
-            isOpened = true;
+            
             NotInteractable = true;
             return true;
         }

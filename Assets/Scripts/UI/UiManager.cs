@@ -15,6 +15,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private UIElement keyInInventory;
     [SerializeField] private UIElement gateCode;
     [SerializeField] private UIElement winMenu;
+    [SerializeField] private UIElement tutorialMenu;
 
     private void Awake()
     {
@@ -75,5 +76,21 @@ public class UiManager : MonoBehaviour
     public void ShowWinMenu()
     {
         winMenu.Show();
+    }
+
+    private bool tutorialIsShowing;
+    public void ShowTutorial()
+    {
+        if (tutorialIsShowing)
+        {
+            tutorialMenu.Hide();
+            tutorialIsShowing = false;
+        }
+        else
+        {
+            tutorialMenu.Show();
+            print("111");
+            tutorialIsShowing = true;
+        }
     }
 }
