@@ -43,9 +43,8 @@ public class GateController : MonoBehaviour, IMapElement
             transform.DOMove(targetPosition, animationLength); // Move to the target position in 2 seconds
             if(anim != null)
             {
-                anim.Play("gate", 0 ,0.01f);
+                anim.Play("gate2", 0 ,0.01f);
                 StartCoroutine(ExampleCoroutine());
-
             }
             inAnimationPlayed = true;
             trigger.SetActive(true);

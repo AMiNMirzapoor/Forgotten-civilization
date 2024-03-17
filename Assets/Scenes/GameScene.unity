@@ -417,6 +417,7 @@ MonoBehaviour:
   keyInInventory: {fileID: 906577183}
   gateCode: {fileID: 1506584723}
   winMenu: {fileID: 1847533185}
+  tutorialMenu: {fileID: 0}
 --- !u!1 &530870745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +2003,33 @@ PrefabInstance:
       objectReference: {fileID: 1762682260}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+--- !u!1 &2071610056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3019797470134255509, guid: 34351e101a36047a39b46c68b0fe86e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8567829042584831647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2071610060
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071610056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50a71ab45cd2d41c3bd960f641ba6fb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2144714131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
@@ -2955,6 +2983,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496024849186153775, guid: 34351e101a36047a39b46c68b0fe86e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496024849186153775, guid: 34351e101a36047a39b46c68b0fe86e8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496024849186153775, guid: 34351e101a36047a39b46c68b0fe86e8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6468512433270116695, guid: 34351e101a36047a39b46c68b0fe86e8,
         type: 3}
