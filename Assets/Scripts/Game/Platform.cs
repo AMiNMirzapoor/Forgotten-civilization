@@ -17,6 +17,8 @@ public class Platform : MonoBehaviour, IMapElement
     public Vector3 InitialRotation { get; set; }
 
     private List<GameObject> triggerObjects = new();
+
+    [SerializeField] private StairBuilding stairBuilding;
     
     public void OnTriggerEnter(Collider other)
     {
@@ -29,6 +31,7 @@ public class Platform : MonoBehaviour, IMapElement
                 IsPlayerNearby = true;
                 state = State.Selected;
                 meshRenderer.material = selectedMaterial;
+                stairBuilding.MoveStairUp();
             }
         }
     }
@@ -48,6 +51,7 @@ public class Platform : MonoBehaviour, IMapElement
         {
             state = State.Deselected;
             meshRenderer.material = deselectedMaterial;
+            stairBuilding.MoveStairDown();
         }
     }
 

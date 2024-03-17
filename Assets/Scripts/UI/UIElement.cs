@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIElement : MonoBehaviour
 {
-    public void Show()
+    public virtual void Show()
     {
         gameObject.SetActive(true);
     }
@@ -15,7 +15,7 @@ public class UIElement : MonoBehaviour
         Show();
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         gameObject.SetActive(false);
     }
