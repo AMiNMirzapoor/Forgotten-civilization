@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class SymbolController : MonoBehaviour, IMapElement
+public class Platform : MonoBehaviour, IMapElement
 {
     public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
@@ -16,35 +15,39 @@ public class SymbolController : MonoBehaviour, IMapElement
     public bool CanBePickedUp() => false;
     
     public Vector3 InitialRotation { get; set; }
+
+    private List<GameObject> triggerObjects = new();
     
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || 
+            (!other.isTrigger && other.gameObject.GetComponentInParent<Rigidbody>().mass > 2f))
         {
+            triggerObjects.Add(other.gameObject);
             if (state != State.Selected) 
             {
                 IsPlayerNearby = true;
                 state = State.Selected;
-                meshRenderer.material = selectedMaterial; 
-                PuzzleManager.instance.SymbolSelected(gameObject.name);
+                meshRenderer.material = selectedMaterial;
             }
-        }
-    }
-
-    public void UpdateState(bool isSelected)
-    {
-        if (!isSelected)
-        {
-            state = State.Deselected;
-            meshRenderer.material = deselectedMaterial;
         }
     }
     
     public void OnTriggerExit(Collider other)
     {
+        if (triggerObjects.Contains(other.gameObject))
+        {
+            triggerObjects.Remove(other.gameObject);
+        }
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = false;
+        }
+
+        if (triggerObjects.Count == 0)
+        {
+            state = State.Deselected;
+            meshRenderer.material = deselectedMaterial;
         }
     }
 
@@ -53,4 +56,3 @@ public class SymbolController : MonoBehaviour, IMapElement
         return false;
     }
 }
-

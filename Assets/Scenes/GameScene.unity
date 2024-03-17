@@ -2936,6 +2936,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1582813610091770756, guid: 34351e101a36047a39b46c68b0fe86e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.77
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34351e101a36047a39b46c68b0fe86e8, type: 3}
 --- !u!1001 &8593532365033484333

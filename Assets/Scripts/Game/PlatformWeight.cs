@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyController : MonoBehaviour, IMapElement
+public class PlatformWeight : MonoBehaviour, IMapElement
 {
     public GameObject GetGameObject() => gameObject;
     public bool IsPlayerNearby { get; set; }
@@ -39,7 +38,6 @@ public class KeyController : MonoBehaviour, IMapElement
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = false;
-            UiManager.instance.HideKeyPressTutorial();
         }
     }
 
@@ -60,8 +58,6 @@ public class KeyController : MonoBehaviour, IMapElement
             return false;
         }
         
-        UiManager.instance.ShowKeyInventory();
-        UiManager.instance.HideKeyPressTutorial();
         return true;
     }
 }

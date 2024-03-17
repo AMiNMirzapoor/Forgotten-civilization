@@ -27,7 +27,7 @@ public class GateController : MonoBehaviour, IMapElement
     {
     }
 
-    public bool OnInteract(KeyCode inputKey)
+    public bool OnInteract(KeyCode inputKey, IMapElement pickedUpElement)
     {
         return false;
     }

@@ -10,7 +10,7 @@ public interface IMapElement
     public bool NotInteractable { get; set; }
     public void OnTriggerEnter(Collider other);
     public void OnTriggerExit(Collider other);
-    public bool OnInteract(KeyCode inputKey);
+    public bool OnInteract(KeyCode inputKey, IMapElement pickedUpElement);
 
     public bool CanBePickedUp();
     

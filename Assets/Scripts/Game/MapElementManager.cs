@@ -28,26 +28,37 @@ public class MapElementManager : MonoBehaviour
 
     public void BroadcastPlayerInput(Transform parent, KeyCode keyCode)
     {
-        if (pickedUpElement is not null)
-        {
-            if (pickedUpElement.CanBePickedUp())
-            {
-                PutDownItem();
-            }
-            
-            return;
-        }
-
+        bool flag = false;
         // Call OnInteract method for each map element
-        foreach (var mapElement in mapElements)
+        foreach (IMapElement mapElement in mapElements)
         {
-            bool flag = mapElement.OnInteract(keyCode);
-            if (flag) 
+            bool interacted = mapElement.OnInteract(keyCode, pickedUpElement);
+            if (interacted)
             {
+                flag = true;
+                if (pickedUpElement is not null)
+                {
+                    pickedUpElement = null;
+                }
                 if (mapElement.CanBePickedUp())
                 {
                     PickUpItem(mapElement, parent);
+                    Debug.Log(mapElement.GetGameObject().name + " Collected");
                 }
+                else
+                {
+                    Debug.Log(mapElement.GetGameObject().name + " Interacted");
+                }
+            }
+        }
+        
+        if (!flag && 
+            pickedUpElement is not null)
+        {
+            if (pickedUpElement.CanBePickedUp())
+            {
+                Debug.Log(pickedUpElement.GetGameObject().name + " PutDown");
+                PutDownItem();
             }
         }
     }
@@ -73,9 +84,11 @@ public class MapElementManager : MonoBehaviour
     private void PutDownItem()
     {
         pickedUpElement.GetGameObject().transform.DOKill();
+        Transform parent = pickedUpElement.GetGameObject().transform.parent;
         pickedUpElement.GetGameObject().transform.SetParent(transform);
         pickedUpElement.GetGameObject().GetComponent<Rigidbody>().isKinematic = false;
         pickedUpElement.GetGameObject().GetComponent<Rigidbody>().useGravity = true;
+        pickedUpElement.GetGameObject().GetComponent<Rigidbody>().AddForce(2*parent.forward, ForceMode.VelocityChange);
         pickedUpElement.NotInteractable = false;
         pickedUpElement = null;
     }
