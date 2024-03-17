@@ -8,8 +8,10 @@ public class GateController : MonoBehaviour, IMapElement
     public GameObject GetGameObject() => gameObject;
     [SerializeField] private float targetY = 10f; // Target Y position
     private bool inAnimationPlayed = false;
+
     private float animationLength = 5;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource audio;
     public bool IsPlayerNearby { get; set; }
     public bool NotInteractable { get; set; }
     public bool CanBePickedUp() => false;
@@ -45,6 +47,7 @@ public class GateController : MonoBehaviour, IMapElement
             {
                 //anim.Play("gate2", 0 ,0.01f);
                 anim.enabled = true;
+        audio.enabled = true;
                 StartCoroutine(ExampleCoroutine());
             }
             inAnimationPlayed = true;
@@ -60,6 +63,7 @@ public class GateController : MonoBehaviour, IMapElement
 
     private void stopAfterPlay(){
         anim.enabled = false;
+        audio.enabled = false;
     }
 }
 
