@@ -8,7 +8,7 @@ public class UIElement : MonoBehaviour
 {
     public virtual void Show()
     {
-        
+        gameObject.SetActive(true);
         GetComponentInChildren<CanvasGroup>().DOKill();
         GetComponentInChildren<CanvasGroup>().alpha = 0f;
         GetComponentInChildren<CanvasGroup>().DOFade(1f, 0.5f);

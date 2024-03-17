@@ -31,6 +31,8 @@ public class UiManager : MonoBehaviour
         {
             uiElements[i].Hide();
         }
+        
+        tutorialMenu.Show();
     }
 
     public void ShowKeyPressTutorial()
@@ -89,8 +91,13 @@ public class UiManager : MonoBehaviour
         else
         {
             tutorialMenu.Show();
-            print("111");
             tutorialIsShowing = true;
         }
+    }
+
+    public void OnAnyKey()
+    {
+        tutorialMenu.Hide();
+        gateCode.Hide();
     }
 }

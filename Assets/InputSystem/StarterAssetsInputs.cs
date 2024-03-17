@@ -59,6 +59,11 @@ namespace StarterAssets
 		{
 			UiManager.instance.ShowTutorial();
 		}
+
+		public void OnClose(InputValue value)
+		{
+			UiManager.instance.OnAnyKey();
+		}
 #endif
 
 

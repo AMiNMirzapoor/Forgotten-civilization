@@ -15,6 +15,9 @@ public class ChestController : MonoBehaviour, IMapElement
     public Vector3 InitialRotation { get; set; }
 
     private bool isOpened;
+
+    public LookAtCamera keyNeeded;
+    public LookAtCamera interactNeeded;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,10 +31,12 @@ public class ChestController : MonoBehaviour, IMapElement
             if (MapElementManager.instance.pickedUpElement is null or not KeyController)
             {
                 UiManager.instance.ShowKeyPressTutorial();
+                interactNeeded.Show();
             }
             else
             {
                 UiManager.instance.ShowKeyNeededTutorial();
+                keyNeeded.Show();
             }
         }
     }
@@ -49,16 +54,20 @@ public class ChestController : MonoBehaviour, IMapElement
             if (MapElementManager.instance.pickedUpElement is null or not KeyController)
             {
                 UiManager.instance.HideKeyPressTutorial();
+                interactNeeded.Hide();
             }
             else
             {
                 UiManager.instance.HideKeyNeededTutorial();
+                keyNeeded.Hide();
             }
         }
     }
 
     public bool OnInteract(KeyCode inputKey, IMapElement pickedUpElement)
     {
+        interactNeeded.Hide();
+        keyNeeded.Hide();
         if (!IsPlayerNearby)
         {
             return false;

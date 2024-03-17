@@ -27,6 +27,7 @@ public class KeyController : MonoBehaviour, IMapElement
         {
             IsPlayerNearby = true;
             UiManager.instance.ShowKeyPressTutorial();
+            GetComponentInChildren<LookAtCamera>().Show();
         }
     }
     
@@ -40,11 +41,14 @@ public class KeyController : MonoBehaviour, IMapElement
         {
             IsPlayerNearby = false;
             UiManager.instance.HideKeyPressTutorial();
+            GetComponentInChildren<LookAtCamera>().Hide();
         }
     }
 
     public bool OnInteract(KeyCode inputKey, IMapElement pickedUpElement)
     {
+        GetComponentInChildren<LookAtCamera>().Hide();
+        
         if (NotInteractable)
         {
             return false;

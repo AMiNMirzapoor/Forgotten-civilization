@@ -26,6 +26,7 @@ public class PlatformWeight : MonoBehaviour, IMapElement
         {
             IsPlayerNearby = true;
             UiManager.instance.ShowKeyPressTutorial();
+            GetComponentInChildren<LookAtCamera>().Show();
         }
     }
     
@@ -38,6 +39,7 @@ public class PlatformWeight : MonoBehaviour, IMapElement
         if (other.gameObject.CompareTag("Player"))
         {
             IsPlayerNearby = false;
+            GetComponentInChildren<LookAtCamera>().Hide();
         }
     }
 
@@ -58,6 +60,7 @@ public class PlatformWeight : MonoBehaviour, IMapElement
             return false;
         }
         
+        GetComponentInChildren<LookAtCamera>().Hide();
         return true;
     }
 }

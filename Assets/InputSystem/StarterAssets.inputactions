@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Tutorial",
+                    "type": "Button",
+                    "id": "c90a8653-64f9-48c8-84e3-5303b101ca0f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "f7cc60d8-fe12-45c2-a536-6ff0757c5e44",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -240,7 +258,18 @@
                 {
                     "name": "",
                     "id": "91162770-9d73-42af-94a0-fe19d9798857",
-                    "path": "<Keyboard>/#(J)",
+                    "path": "<Keyboard>/#(X)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52b61d43-205c-45d9-bfd3-e9eb2e50f3b8",
+                    "path": "<Keyboard>/#(ط)",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -262,7 +291,7 @@
                 {
                     "name": "",
                     "id": "5cf1d7e6-0455-4b57-a3a8-fe0e16e95828",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -278,6 +307,61 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "022dbf11-b091-4280-a01d-3d60ea4ccf47",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Tutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "154187ce-d3a5-4532-8601-b922689da9d0",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Tutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9297dd9-1427-4838-8b60-c46a37678830",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "358edcca-a388-40f9-a40d-bee7773ee979",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e829bc09-944b-4ed7-a80e-38a65b9d106a",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

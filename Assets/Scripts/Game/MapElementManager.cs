@@ -67,6 +67,7 @@ public class MapElementManager : MonoBehaviour
     {
         pickedUpElement = mapElement;
         mapElement.NotInteractable = true;
+        mapElement.IsPlayerNearby = false;
         mapElement.GetGameObject().transform.SetParent(parent);
         mapElement.GetGameObject().GetComponent<Rigidbody>().isKinematic = true;
         mapElement.GetGameObject().GetComponent<Rigidbody>().useGravity = false;
@@ -88,8 +89,9 @@ public class MapElementManager : MonoBehaviour
         pickedUpElement.GetGameObject().transform.SetParent(transform);
         pickedUpElement.GetGameObject().GetComponent<Rigidbody>().isKinematic = false;
         pickedUpElement.GetGameObject().GetComponent<Rigidbody>().useGravity = true;
-        pickedUpElement.GetGameObject().GetComponent<Rigidbody>().AddForce(2*parent.forward, ForceMode.VelocityChange);
+        pickedUpElement.GetGameObject().GetComponent<Rigidbody>().AddForce(3.5f*parent.forward, ForceMode.VelocityChange);
         pickedUpElement.NotInteractable = false;
+        pickedUpElement.IsPlayerNearby = false;
         pickedUpElement = null;
     }
 }
