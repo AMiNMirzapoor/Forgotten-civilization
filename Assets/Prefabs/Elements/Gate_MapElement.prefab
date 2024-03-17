@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetY: 1.74
+  anim: {fileID: 0}
   trigger: {fileID: 4916914537878849242}
 --- !u!54 &8074074344275326652
 Rigidbody:
@@ -778,6 +779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85c571689e676458cb80f937222058f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85c571689e676458cb80f937222058f1, type: 3}
