@@ -34,10 +34,6 @@ public class GateController : MonoBehaviour, IMapElement
         return false;
     }
 
-    void Start(){
-        ShowOpenAnimation();
-    }
-
     public void ShowOpenAnimation()
     {
         if (!inAnimationPlayed)
